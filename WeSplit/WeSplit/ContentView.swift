@@ -11,9 +11,9 @@ struct ContentView: View {
     
     @State private var checkAmount: Double = 0.0
     @State private var numberOfPeople: Int = 2
-    @State private var tipPercentage: Int = 20
+    @State private var tipPercentage: Int = 10
     
-    let tipPercentages = [10, 15, 20, 25, 0]
+    let tipPercentages = [0, 10, 15, 20, 25]
     
     var body: some View {
         NavigationStack {
@@ -28,6 +28,17 @@ struct ContentView: View {
                                 .tag($0)
                         }
                     }
+                }
+                
+                Section {
+                    Picker("Tip percentage", selection: $tipPercentage) {
+                        ForEach(tipPercentages, id: \.self) {
+                            Text($0, format: .percent)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                } header: {
+                    Text("How much tip do you want to leave?")
                 }
             }
             .navigationTitle("WeSplit")
