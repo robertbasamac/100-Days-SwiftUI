@@ -15,9 +15,16 @@ struct ContentView: View {
     
     @FocusState private var amountIsFocused: Bool
     
-    let tipPercentages = [10, 15, 20, 25, 0]
+    private var currency: FloatingPointFormatStyle<Double>.Currency = .currency(code: Locale.current.currency?.identifier ?? "$")
     
-    var totalPerPerson: Double {
+    private let tipPercentages = [10, 15, 20, 25, 0]
+    
+    private var grandTotal: Double {
+        let tipValue = checkAmount / 100 * Double(tipPercentage)
+        return checkAmount + tipValue
+    }
+    
+    private var totalPerPerson: Double {
         let tipValue = checkAmount / 100 * Double(tipPercentage)
         let grandTotal = checkAmount + tipValue
         let amountPerPerson = grandTotal / Double(numberOfPeople)
@@ -39,6 +46,8 @@ struct ContentView: View {
                                 .tag($0)
                         }
                     }
+                } header: {
+                    Text("Enter the amount and the number of people")
                 }
                 
                 Section {
@@ -54,7 +63,15 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    Text(totalPerPerson, format: currency)
+                } header: {
+                    Text("Amount per person")
+                }
+                
+                Section {
+                    Text(grandTotal, format: currency)
+                } header: {
+                    Text("Grand total")
                 }
             }
             .navigationTitle("WeSplit")
