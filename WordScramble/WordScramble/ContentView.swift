@@ -17,6 +17,10 @@ struct ContentView: View {
     @State private var errorMessage: String = ""
     @State private var showingError: Bool = false
     
+    @State private var isLoading: Bool = false
+    
+    @State private var timer = Timer.publish(every: 0.25, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         NavigationStack {
             List {
@@ -43,6 +47,25 @@ struct ContentView: View {
                 Button("OK", role: .cancel) { }
             } message: {
                 Text(errorMessage)
+            }
+            .toolbar {
+                ToolbarItem(placement: .automatic) {
+                    Button {
+                        withAnimation(.linear(duration: 0.25)) {
+                            timer = Timer.publish(every: 0.25, on: .main, in: .common).autoconnect()
+
+                            isLoading = true
+                            startGame()
+                        }
+                    } label: {
+                        Image(systemName: "arrow.clockwise")
+                    }
+                    .rotationEffect(Angle(degrees: isLoading ? 360 : 0), anchor: .center)
+                    .onReceive(timer) { _ in
+                        isLoading = false
+                        timer.upstream.connect().cancel()
+                    }
+                }
             }
         }
     }
@@ -77,6 +100,7 @@ struct ContentView: View {
             if let startwWords = try? String(contentsOf: startWordsURL) {
                 let allWords = startwWords.components(separatedBy: "\n")
                 rootWord = allWords.randomElement() ?? "silkworm"
+                usedWords.removeAll()
                 
                 return
             }
