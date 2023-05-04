@@ -89,6 +89,16 @@ struct ContentView: View {
             return
         }
         
+        guard isLongEnough(word: answer) else {
+            wordError(title: "Word too short", message: "Use your brain and find a longer word!")
+            return
+        }
+        
+        guard isNotRoot(word: answer) else {
+            wordError(title: "Word similar to root word", message: "You can do better than this!")
+            return
+        }
+                
         withAnimation {
             usedWords.insert(answer, at: 0)
         }
@@ -110,7 +120,7 @@ struct ContentView: View {
     }
     
     func isOriginal(word: String) -> Bool {
-        !usedWords.contains(word)
+        return !usedWords.contains(word)
     }
     
     func isPossible(word: String) -> Bool {
@@ -133,6 +143,14 @@ struct ContentView: View {
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
         
         return misspelledRange.location == NSNotFound
+    }
+    
+    func isLongEnough(word: String) -> Bool {
+        return word.count > 2 ? true : false
+    }
+    
+    func isNotRoot(word: String) -> Bool {
+        return word != rootWord ? true : false
     }
     
     func wordError(title: String, message: String) {
