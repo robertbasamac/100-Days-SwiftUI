@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var scoreTitle: String = ""
     @State private var streak: Int = 0
     
+    @State private var tappedFlag: Int? = nil
+    
     @State private var countries: [String] = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswers: Int = Int.random(in: 0...2)
     
@@ -49,6 +51,9 @@ struct ContentView: View {
                             flagTapped(number)
                         } label: {
                             FlagImage(country: countries[number])
+                                .rotation3DEffect(.degrees(tappedFlag == number ? 360 : 0), axis: (x: 0, y: 1, z: 0))
+                                .scaleEffect(tappedFlag == nil ? 1 : tappedFlag == number ? 1.0 : 0.75)
+                                .opacity(tappedFlag == nil ? 1 : tappedFlag == number ? 1.0 : 0.75)
                         }
                     }
                 }
@@ -86,6 +91,7 @@ struct ContentView: View {
         .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue") {
                 askQuestion()
+                tappedFlag = nil
             }
         } message: {
             Text("Your score is \(scoreTitle)")
@@ -93,6 +99,10 @@ struct ContentView: View {
     }
     
     func flagTapped(_ number: Int) {
+        withAnimation {
+            tappedFlag = number
+        }
+        
         if number == correctAnswers {
             scoreTitle = "Correct"
             streak += 1
