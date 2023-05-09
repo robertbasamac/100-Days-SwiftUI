@@ -15,7 +15,10 @@ struct AddView: View {
     @State private var type: String = "Personal"
     @State private var amount: Double = 0.0
     
-    let types = ["Business", "Personal"]
+    enum expenseType: String, CaseIterable {
+        case personal = "Personal"
+        case business = "Business"
+    }
     
     var body: some View {
         NavigationStack {
@@ -23,8 +26,8 @@ struct AddView: View {
                 TextField("Name", text: $name)
                 
                 Picker("Type", selection: $type) {
-                    ForEach(types, id: \.self) {
-                        Text($0)
+                    ForEach(expenseType.allCases, id: \.self) {
+                        Text($0.rawValue)
                     }
                 }
                 
