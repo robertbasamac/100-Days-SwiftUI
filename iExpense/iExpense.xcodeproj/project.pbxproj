@@ -13,6 +13,7 @@
 		09E232112A0A62C800170A96 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09E232102A0A62C800170A96 /* Preview Assets.xcassets */; };
 		09E232182A0A637300170A96 /* ExpenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E232172A0A637300170A96 /* ExpenseItem.swift */; };
 		09E2321A2A0A639A00170A96 /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E232192A0A639A00170A96 /* Expenses.swift */; };
+		09E2321C2A0A6F2D00170A96 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E2321B2A0A6F2D00170A96 /* AddView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		09E232102A0A62C800170A96 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		09E232172A0A637300170A96 /* ExpenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItem.swift; sourceTree = "<group>"; };
 		09E232192A0A639A00170A96 /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
+		09E2321B2A0A6F2D00170A96 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +58,10 @@
 			isa = PBXGroup;
 			children = (
 				09E232092A0A62C700170A96 /* iExpenseApp.swift */,
-				09E2320B2A0A62C700170A96 /* ContentView.swift */,
 				09E232172A0A637300170A96 /* ExpenseItem.swift */,
 				09E232192A0A639A00170A96 /* Expenses.swift */,
+				09E2320B2A0A62C700170A96 /* ContentView.swift */,
+				09E2321B2A0A6F2D00170A96 /* AddView.swift */,
 				09E2320D2A0A62C800170A96 /* Assets.xcassets */,
 				09E2320F2A0A62C800170A96 /* Preview Content */,
 			);
@@ -145,6 +148,7 @@
 			files = (
 				09E2321A2A0A639A00170A96 /* Expenses.swift in Sources */,
 				09E2320C2A0A62C700170A96 /* ContentView.swift in Sources */,
+				09E2321C2A0A6F2D00170A96 /* AddView.swift in Sources */,
 				09E232182A0A637300170A96 /* ExpenseItem.swift in Sources */,
 				09E2320A2A0A62C700170A96 /* iExpenseApp.swift in Sources */,
 			);
