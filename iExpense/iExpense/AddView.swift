@@ -17,11 +17,6 @@ struct AddView: View {
     @State private var type: expenseType = .personal
     @State private var amount: Double = 0.0
     
-    enum expenseType: String, CaseIterable {
-        case personal = "Personal"
-        case business = "Business"
-    }
-    
     var body: some View {
         NavigationStack {
             Form {
@@ -40,7 +35,7 @@ struct AddView: View {
             .toolbar {
                 ToolbarItem {
                     Button("Save") {
-                        let item = ExpenseItem(name: name, type: type.rawValue, amount: amount)
+                        let item = ExpenseItem(name: name, type: type, amount: amount)
                         expenses.items.append(item)
                         
                         dismiss()
