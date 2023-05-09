@@ -9,10 +9,12 @@ import SwiftUI
 
 struct AddView: View {
     
+    @Environment (\.dismiss) private var dismiss
+    
     @ObservedObject var expenses: Expenses
     
     @State private var name: String = ""
-    @State private var type: String = "Personal"
+    @State private var type: expenseType = .personal
     @State private var amount: Double = 0.0
     
     enum expenseType: String, CaseIterable {
@@ -35,6 +37,16 @@ struct AddView: View {
                     .keyboardType(.decimalPad)
             }
             .navigationTitle("Add new expense")
+            .toolbar {
+                ToolbarItem {
+                    Button("Save") {
+                        let item = ExpenseItem(name: name, type: type.rawValue, amount: amount)
+                        expenses.items.append(item)
+                        
+                        dismiss()
+                    }
+                }
+            }
         }
     }
 }
