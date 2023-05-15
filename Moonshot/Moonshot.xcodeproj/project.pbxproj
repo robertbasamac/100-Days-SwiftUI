@@ -15,6 +15,7 @@
 		09B8D3C22A1287110041C320 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 09B8D3C02A1287110041C320 /* missions.json */; };
 		09B8D3C42A1288EE0041C320 /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8D3C32A1288EE0041C320 /* Astronaut.swift */; };
 		09B8D3C62A128A070041C320 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8D3C52A128A070041C320 /* Bundle-Decodable.swift */; };
+		09B8D3C82A128D180041C320 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8D3C72A128D180041C320 /* Mission.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		09B8D3C02A1287110041C320 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = SOURCE_ROOT; };
 		09B8D3C32A1288EE0041C320 /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
 		09B8D3C52A128A070041C320 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		09B8D3C72A128D180041C320 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				09B8D3AD2A1282810041C320 /* MoonshotApp.swift */,
 				09B8D3AF2A1282810041C320 /* ContentView.swift */,
 				09B8D3C32A1288EE0041C320 /* Astronaut.swift */,
+				09B8D3C72A128D180041C320 /* Mission.swift */,
 				09B8D3C52A128A070041C320 /* Bundle-Decodable.swift */,
 				09B8D3BF2A1287110041C320 /* astronauts.json */,
 				09B8D3C02A1287110041C320 /* missions.json */,
@@ -154,6 +157,7 @@
 				09B8D3C42A1288EE0041C320 /* Astronaut.swift in Sources */,
 				09B8D3B02A1282810041C320 /* ContentView.swift in Sources */,
 				09B8D3AE2A1282810041C320 /* MoonshotApp.swift in Sources */,
+				09B8D3C82A128D180041C320 /* Mission.swift in Sources */,
 				09B8D3C62A128A070041C320 /* Bundle-Decodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
