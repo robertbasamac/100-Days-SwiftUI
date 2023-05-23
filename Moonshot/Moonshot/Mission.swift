@@ -31,4 +31,8 @@ struct Mission: Identifiable, Codable {
     var formattedLaunchDate: String {
         launchDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A"
     }
+    
+    var formattedLongLaunchDate: String {
+        launchDate?.formatted(date: .complete, time: .complete) ?? "N/A"
+    }
 }
