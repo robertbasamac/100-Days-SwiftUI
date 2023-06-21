@@ -65,13 +65,13 @@
 			children = (
 				09D5FF952A408F44003B0F71 /* BookwormApp.swift */,
 				09D5FF972A408F44003B0F71 /* ContentView.swift */,
+				09D5FFAE2A43002E003B0F71 /* DetailView.swift */,
 				09D5FFA62A409053003B0F71 /* AddBookView.swift */,
 				09D5FFAA2A41C450003B0F71 /* RatingView.swift */,
 				09D5FFAC2A41C685003B0F71 /* EmojiRatingView.swift */,
 				09D5FFA82A4091FF003B0F71 /* DataController.swift */,
 				09D5FFA32A408F5D003B0F71 /* Bookworm.xcdatamodeld */,
 				09D5FF992A408F45003B0F71 /* Assets.xcassets */,
-				09D5FFAE2A43002E003B0F71 /* DetailView.swift */,
 				09D5FF9B2A408F45003B0F71 /* Preview Content */,
 			);
 			path = Bookworm;

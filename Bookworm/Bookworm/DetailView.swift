@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct DetailView: View {
+    @Environment(\.managedObjectContext) var viewContext
+    @Environment(\.dismiss) var dismiss
+    
+    @State private var showConfirmationDialog = false
+    
     let book: Book
     
     var body: some View {
@@ -39,6 +44,32 @@ struct DetailView: View {
         }
         .navigationTitle(book.title ?? "Unknown Book")
         .navigationBarTitleDisplayMode(.inline)
+        .confirmationDialog("Delete book?", isPresented: $showConfirmationDialog, presenting: book, actions: { book in
+            Button("Delete", role: .destructive) {
+                deleteBook()
+            }
+            
+            Button("Cancel", role: .cancel) { }
+        }, message: { book in
+            Text("Are you sure you want to delete \"\(book.title ?? "Unknown Title")\"?")
+        })
+        .toolbar {
+            ToolbarItem {
+                Button {
+                    showConfirmationDialog = true
+                } label: {
+                    Label("Delete this book", systemImage: "trash")
+                }
+            }
+        }
+    }
+    
+    func deleteBook() {
+        viewContext.delete(book)
+        
+        try? viewContext.save()
+        
+        dismiss()
     }
 }
 
