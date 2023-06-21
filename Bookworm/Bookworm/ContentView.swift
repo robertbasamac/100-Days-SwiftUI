@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var viewContext
-    @FetchRequest(sortDescriptors: []) var books: FetchedResults<Book>
+    @FetchRequest(sortDescriptors: [
+        SortDescriptor(\.title, order: .forward),
+        SortDescriptor(\.author, order: .forward)
+    ]) var books: FetchedResults<Book>
     
     @State private var showAddScreen = false
     
@@ -36,6 +39,7 @@ struct ContentView: View {
 
                 }
             }
+            .listStyle(.inset)
             .navigationTitle("Bookworm")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
